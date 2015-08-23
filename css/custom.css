@@ -1,9 +1,14 @@
-body {
+html, body {
 	
-	padding: 3vw;
+	padding: 1vw;
 	font-family: 'Work Sans', sans-serif;
 	color: white;
 	background-color: black;
+}
+
+.wrapper {
+	
+	padding-bottom: 30px;
 }
 
 h1, h2, h3, h4 {
@@ -17,49 +22,61 @@ h1, h2, h3, h4 {
 	
 	margin-left: auto;
     margin-right: auto;
-	max-width: 600px;
+	max-width: 100%;
+	padding-bottom: 30px;
 }
 
+#rsvp-form {
+	
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 30px;
+}
+
+#sign-up {
+		
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#details {
+	
+	padding-bottom: 30px;	
+}
+
+/* JS ASSIGNED CLASSES START */
 .my-alert {
 	
 	color: #D31C29;
 }
 
-.jumbotron {
+.my-error {
 	
-	background-color: #1C1C1C;	
-	padding: 5px;
+	border-color: #D31C29;
+	box-shadow: 0px 0px 10px 0px #D31C29;
+}
+/* JS ASSIGNED CLASSES END */
+
+.thumbnail {
+	
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;	
+	background-color: #1C1C1C;
+	border-color: #1C1C1C;
+	text-align: left;
 }
 
-.sign-up {
+.map {
 	
-	margin-left: auto;
-    margin-right: auto;
-	max-width: 90%;
+	padding-top: 15px; 
+	max-width: 100%;
+	max-height: 300px;
 }
 
-#location, #form-title {
+#location, h2 {
 	
 	color: #0B5CA8;
-}
-
-#zero {
-	
-	padding: 2vw;	
-	max-width: 70%;
-	min-width: 50%;
-}
-
-#logo {
-	
-	padding: 1vw;
-	max-width: 100%;
-	min-width: 50%;
-}
-
-.fa {
-	
-	font-size: 20px;
 }
 
 .footer {
@@ -68,19 +85,18 @@ h1, h2, h3, h4 {
 	max-width: 300px;
 }
 
-.my-error {
-	
-	border-color: #D31C29;
-	box-shadow: 0px 0px 10px 0px #D31C29;
-}
-
 .logo-small {
 	
 	width: 100%;
 	height: auto;
 }
 
-@media(max-width:400px){
+.fa {
+	
+	font-size: 20px;
+}
+
+@media(max-width:450px){
 	
 	body {
 		
@@ -105,5 +121,102 @@ h1, h2, h3, h4 {
 	h4 {
 		
 		font-size: 18px;
+	}
+	
+	#logo {
+		
+		padding: 5vw;
+		max-width: 95%;
+	}
+	
+	#zero {
+		
+		padding: 1vw;	
+		max-width: 60%;
+	}
+}
+
+@media(min-width:450px) {
+	
+	body {
+		
+		font-size: 16px;
+	}
+	
+	h1 {
+		
+		font-size: 24px;
+	}
+	
+	h2 {
+		
+		font-size: 22px;
+	}
+	
+	h3 {
+		
+		font-size: 20px;
+	}
+	
+	h4 {
+		
+		font-size: 18px;
+	}
+	
+	#zero {
+		
+		padding: 1vw;	
+		max-width: 40%;
+	}
+	
+	#logo {
+		
+		padding: 1vw;
+		max-width: 60%;
+	}
+}
+
+@media(min-width:768px){
+	
+	body {
+		
+		font-size: 16px;
+	}
+	
+	h1 {
+		
+		font-size: 26px;
+	}
+	
+	h2 {
+		
+		font-size: 24px;
+	}
+	
+	h3 {
+		
+		font-size: 22px;
+	}
+	
+	h4 {
+		
+		font-size: 20px;
+	}
+	
+	#logo {
+		
+		padding: 1vw;
+		max-width: 30%;
+	}
+	
+	#zero {
+		
+		padding: 1vw;	
+		max-width: 20%;
+	}
+	
+	#rsvp-form {
+		
+		width: 80%;
 	}
 }
