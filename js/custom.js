@@ -1,3 +1,46 @@
+function squareObject(group) {
+	
+	group.each(function () {
+		
+		$(this).height($(this).width());
+	});
+}
+
+function equalHeight(group) {    
+    tallest = 0;    
+    group.each(function() {       
+        thisHeight = $(this).height();       
+        if(thisHeight > tallest) {          
+            tallest = thisHeight;       
+        }    
+    });
+	
+    group.each(function() {
+		
+		$(this).height(tallest);
+	});
+} 
+
+$(window).load(function() {
+	
+	squareObject($(".map"));
+		
+	if ($(window).width() >= 768) {
+			
+		equalHeight($("#details .thumbnail"));			
+	}
+	
+	$(window).resize(function() {
+		
+		squareObject($(".map"));
+		
+		if ($(window).width() >= 768) {
+			
+			equalHeight($("#details .thumbnail"));			
+		}
+	});
+});
+
 var myApp = angular.module('mainApp', [])
 
 myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
@@ -43,7 +86,7 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, 
 					$scope.$apply(function() {
 						
 						$scope.resultError = 'my-alert';
-						$scope.result = $sce.trustAsHtml('<br>An error has ocurred. Please refresh the website and try again or contact <a href="mailto:help@pantherhackers.com">help@pantherhackers.com</a>');
+						$scope.result = $sce.trustAsHtml('<br>An error has ocurred. Please refresh the website and try again or contact <a href="mailto:faq@zero.pantherhackers.com">help@pantherhackers.com</a>');
 					});
 				});
 			
