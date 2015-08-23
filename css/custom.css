@@ -97,6 +97,13 @@ h1, h2, h3, h4 {
 	border-color: #0B5CA8;
 }
 
+.btn-default:hover {
+	
+	color: white;
+	background-color: #094B82;
+	border-color: #094B82;
+}
+
 .footer {
 	
 	text-align: center;

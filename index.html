@@ -82,7 +82,7 @@
 						</div>
 					</div>
 					<div class="text-center">
-						<div ng-click="submit()" class="btn btn-default btn-lg">RSVP FOR FREE FOOD!</div>				
+						<div ng-click="submit()" ng-disabled="isDisabled()" class="btn btn-default btn-lg btn-primary">RSVP FOR FREE FOOD!</div>				
 						<div ng-class="resultError" ng-bind-html="result"></div>
 					</div>
 				</form>
@@ -137,7 +137,7 @@
 					<h2>FAQ</h2>
 					<p>
 						For questions please communicate with 
-						us through <a href="mailto:faq@zero.pantherhackers.com">faq@zero.pantherhackers.com</a>.
+						us through <a href="mailto:clewis57@student.gsu.edu">clewis57@student.gsu.edu</a>.
 					</p>
 				</div>
 			</div>
@@ -147,7 +147,7 @@
 		<div class="thumbnail text-center">
 			<h2>WANT MORE?</h2>
 			<br>
-			<a href="http://pantherhackers.com/"><div class="btn btn-default btn-lg">CHECK US OUT!</div>
+			<a href="http://pantherhackers.com/" class="btn btn-default btn-lg" role="button">CHECK US OUT!</a>
 		</div>
 	</div>
 	<footer>
@@ -155,14 +155,13 @@
 			<a href="http://pantherhackers.com/">
 				<img src="./images/long-logo.png" alt="" class="logo-small center-block">
 			</a>
-			<p>Designed and developed by PantherHackers @ GSU</p>
+			<p>Designed and Developed by PantherHackers @ GSU</p>
 			<p>	
 				<a href="https://www.facebook.com/PantherHackers"><i class="fa fa-facebook"></i></a> &nbsp; 
 				<a href="https://twitter.com/PantherHackers"><i class="fa fa-twitter"></i></a> &nbsp; 
 				<a href="https://instagram.com/pantherhackers/"> <i class="fa fa-instagram"></i></a>&nbsp;
 				<a href="mailto:hello@pantherhackers.com"> <i class="fa fa-envelope-o"></i></a>
 			</p>
-			<p>Copyright</p>
 		</div>
 	</footer>
 </body>
