@@ -54,7 +54,12 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, 
 	$scope.experience = 'none';
 	$scope.signUp = true;
 	$scope.buttonStatus = true;
+	$scope.signedUp = false;
 	
+	$scope.doneSign = function () {
+		
+		return $scope.signedUp;
+	}
 	
 	$scope.isDisabled = function () {
 		
@@ -86,19 +91,19 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, 
 					url: script_url,
 					data: info
 				})
-				.done(function(){
+				.done(function() {
 					$scope.$apply(function() {
 						
-						$scope.buttonStatus = true;					
+						$scope.signedUp = true;
 						$scope.result = $sce.trustAsHtml('<br>Thanks for RSVPing. We look forward to meeting you!');
 					});
 				})
 				.fail(function() {
 					$scope.$apply(function() {
 						
-						$scope.buttonStatus = true;					
+						$scope.signedUp = true;						
 						$scope.resultError = 'my-alert';
-						$scope.result = $sce.trustAsHtml('<br>An error has ocurred. Please refresh the website and try again or contact <a href="mailto:faq@zero.pantherhackers.com">help@pantherhackers.com</a>');
+						$scope.result = $sce.trustAsHtml('<br>An error has ocurred. Please refresh the website and try again or contact <a href="mailto:clewis57@student.gsu.edu">clewis57@student.gsu.edu</a>');
 					});
 				});
 			}

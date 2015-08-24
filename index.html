@@ -20,10 +20,10 @@
 <body ng-controller="mainController">
 	<div class="wrapper">
 		<div id="intro">
-			<a href="http://pantherhackers.com/">
+			<a href="./index.html">
 				<image id='logo' class="image-responsive center-block" src="./images/logo.png" alt="PantherHackers Logo">
 			</a>
-			<a href="./">
+			<a href="./index.html">
 				<image id='zero' class="image-responsive center-block" src="./images/zero.png" alt="Event ZERO Logo">
 			</a>
 			<div class="row text-center">
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="thumbnail" id="rsvp-form">
-			<div id="sign-up">
+			<div ng-hide="doneSign()" id="sign-up">
 				<h2>RSVP FORM</h2>
 				<form action="">
 					<div class="form-group">
@@ -47,8 +47,8 @@
 						<input type="text" class="form-control" id="inputName" ng-model="name" ng-class="nameError" placeholder="ex: Bill Gates">
 					</div>
 					<div class="form-group">
-						<label for="inputId">Campus ID:</label>
-						<input type="text" class="form-control" id="inputId" ng-model="campusId" ng-class="campusIdError" placeholder="ex: sjobs1">
+						<label for="inputId">Student Email:</label>
+						<input type="text" class="form-control" id="inputId" ng-model="campusId" ng-class="campusIdError" placeholder="ex: sjobs1@student.gsu.edu">
 					</div>
 					<div class="form-group">
 						<label>How much coding experience do you have?</label>
@@ -83,9 +83,16 @@
 					</div>
 					<div class="text-center">
 						<div ng-click="submit()" ng-disabled="isDisabled()" class="btn btn-default btn-lg btn-primary">RSVP FOR FREE FOOD!</div>				
-						<div ng-class="resultError" ng-bind-html="result"></div>
 					</div>
 				</form>
+			</div>
+			<div id="result" ng-class="resultError" ng-bind-html="result"></div>				
+		</div>
+		<div id="more">
+			<div ng-show="doneSign()" class="thumbnail text-center">
+				<h2>WANT MORE?</h2>
+				<br>
+				<a href="http://pantherhackers.com/" class="btn btn-default btn-lg" role="button">CHECK US OUT!</a>
 			</div>
 		</div>
 	</div>
@@ -126,7 +133,7 @@
 						Meeting ZERO will take place at Curve 
 						(Collaborative University Research & 
 						Visualization Environment), which is 
-						located at Library South, GSU.
+						located at the 2nd floor of Library South, GSU.
 						<br>
 						<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13269.227543656603!2d-84.3865843!3d33.7527348!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5907e19d69cb36dd!2sGeorgia+State+University+Library!5e0!3m2!1sen!2sus!4v1440367486730" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</p>
@@ -144,7 +151,7 @@
 		</div>
 	</div>
 	<div id="more">
-		<div class="thumbnail text-center">
+		<div ng-show="!doneSign()" class="thumbnail text-center">
 			<h2>WANT MORE?</h2>
 			<br>
 			<a href="http://pantherhackers.com/" class="btn btn-default btn-lg" role="button">CHECK US OUT!</a>

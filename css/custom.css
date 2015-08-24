@@ -57,6 +57,12 @@ h1, h2, h3, h4 {
 	padding-bottom: 30px;
 }
 
+#result {
+	
+	text-align: center;
+	font-size: 20px;
+}
+
 /* JS ASSIGNED CLASSES START */
 .my-alert {
 	
@@ -85,7 +91,7 @@ h1, h2, h3, h4 {
 	max-width: 100%;
 }
 
-#location, h2 {
+#location, h1, h2 {
 	
 	color: #0B5CA8;
 }
