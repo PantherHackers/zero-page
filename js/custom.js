@@ -95,7 +95,14 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, 
 					$scope.$apply(function() {
 						
 						$scope.signedUp = true;
-						$scope.result = $sce.trustAsHtml('<br>Thanks for RSVPing. We look forward to meeting you!');
+						if ($(window).width() >= 768) {
+								
+							$scope.result = $sce.trustAsHtml('<br>Thanks for RSVPing. We look forward to meeting you<br><br>' +
+							'<a target="_blank" href=\"https://www.google.com/calendar/event?action=TEMPLATE&tmeid=ZDIwdTFwcmw3MTA4bWJ0c3M0M2M0cm1zamMgZmVycmVybHVpczk3QG0&tmsrc=ferrerluis97%40gmail.com" class="btn btn-default btn-lg">Add to Google Calendar!</a>');
+						} else {
+							
+							$scope.result = $sce.trustAsHtml('<br>Thanks for RSVPing. We look forward to meeting you');
+						}
 					});
 				})
 				.fail(function() {
