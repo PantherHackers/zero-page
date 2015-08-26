@@ -93,7 +93,10 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function(
 					url: script_url,
 					data: info
 				})
-				.done(function() {
+				.done(function(e) {
+					
+					$log.info(e);
+					
 					$scope.$apply(function() {
 						
 						$scope.signedUp = true;
@@ -108,7 +111,7 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function(
 					});
 				})
 				.fail(function(xhr) {
-					$log.error(xhr.responseText);
+					$log.error(xhr);
 					$scope.$apply(function() {
 						
 						$scope.signedUp = true;						
