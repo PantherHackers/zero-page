@@ -43,7 +43,7 @@ $(window).load(function() {
 
 var myApp = angular.module('mainApp', [])
 
-myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+myApp.controller('mainController', ['$scope', '$http', '$sce', '$log' function($scope, $http, $sce, $log) {
 	
 	$scope.name = '';
 	$scope.campusId = '';
@@ -105,7 +105,8 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', function($scope, 
 						}
 					});
 				})
-				.fail(function() {
+				.fail(function(xhr) {
+					$log.error(xhr.responseText);
 					$scope.$apply(function() {
 						
 						$scope.signedUp = true;						
