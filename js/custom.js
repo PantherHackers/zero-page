@@ -43,7 +43,7 @@ $(window).load(function() {
 
 var myApp = angular.module('mainApp', [])
 
-myApp.controller('mainController', ['$scope', '$http', '$sce', '$log' function($scope, $http, $sce, $log) {
+myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function($scope, $http, $sce, $log) {
 	
 	$scope.name = '';
 	$scope.campusId = '';
@@ -67,6 +67,8 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log' function($
 	};
 	
 	$scope.submit = function() {
+		
+		$log.info('Button clicked');
 		
 		if ($scope.name.length !== 0 && $scope.campusId.length !== 0) {
 			
