@@ -88,14 +88,8 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function(
 				};
 				
 				var script_url = "https://script.google.com/macros/s/AKfycbxlDE99VBlCgPxYlGjlA2Qow5RZST9MYn0eyMoyL1lEcj7dgcM/exec";
-				$.ajax({
-					method:'POST',
-					url: script_url,
-					data: info
-				})
-				.done(function(e) {
-					
-					$log.info(e);
+				$.post(script_url, info)
+				.always(function() {
 					
 					$scope.$apply(function() {
 						
@@ -110,15 +104,6 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function(
 						}
 					});
 				})
-				.fail(function(xhr) {
-					$log.error(xhr);
-					$scope.$apply(function() {
-						
-						$scope.signedUp = true;						
-						$scope.resultError = 'my-alert';
-						$scope.result = $sce.trustAsHtml('<br>An error has ocurred. Please refresh the website and try again or contact <a href="mailto:clewis57@student.gsu.edu">clewis57@student.gsu.edu</a>');
-					});
-				});
 			}
 				
 		} else {
