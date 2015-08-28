@@ -31,44 +31,47 @@
 					<h3 id="time">5PM</h3>
 				</div>
 				<div class="col-sm-4">
-					<h3 id="location">LIBRARY-CURVE</h3>
+					<h3 id="location">LIBRARY SOUTH 102</h3>
 				</div>
 				<div class="col-sm-4">
-					<h3 id="date">9/1</h3>
+					<h3 id="date">9/1/15</h3>
 				</div>
 			</div>
 		</div>
-		<div class="thumbnail" id="rsvp-form">
+		<div ng-if="!isDeadline()" class="more my-warning">
+			<p>The RSVP process will close at 4 PM on Saturday, August 29th.</p>
+		</div>
+		<div ng-if="!isDeadline()" class="thumbnail" id="rsvp-form">
 			<div ng-hide="doneSign()" id="sign-up">
 				<h2>RSVP FORM</h2>
 				<form action="">
 					<div class="form-group">
 						<label for="inputName">Name:</label>
-						<input type="text" class="form-control" id="inputName" ng-model="name" ng-class="nameError" placeholder="ex: Bill Gates">
+						<input type="text" class="form-control" id="inputName" ng-model="$parent.name" ng-class="nameError" placeholder="ex: Bill Gates">
 					</div>
 					<div class="form-group">
 						<label for="inputId">Student Email:</label>
-						<input type="text" class="form-control" id="inputId" ng-model="campusId" ng-class="campusIdError" placeholder="ex: sjobs1@student.gsu.edu">
+						<input type="text" class="form-control" id="inputId" ng-model="$parent.campusId" ng-class="campusIdError" placeholder="ex: sjobs1@student.gsu.edu">
 					</div>
 					<div class="form-group">
 						<label>How much coding experience do you have?</label>
 						<div class="radio"> 
 							<label for="f_no_experience">
-								<input type="radio" name="experience" id="f_no_experience" ng-model="experience" value="none" ng-checked="true">
+								<input type="radio" name="experience" id="f_no_experience" ng-model="$parent.experience" value="none" ng-checked="true">
 								None at all
 							</label>
 						</div>
 						
 						<div class="radio"> 
 							<label for="f_some_experience">
-								<input type="radio" name="experience" id="f_some_experience" ng-model="experience" value="some">
+								<input type="radio" name="experience" id="f_some_experience" ng-model="$parent.experience" value="some">
 								A little bit
 							</label>
 						</div>
 						
 						<div class="radio"> 
 							<label for="f_large_experience">
-								<input type="radio" name="experience" id="f_large_experience" ng-model="experience" value="lots">
+								<input type="radio" name="experience" id="f_large_experience" ng-model="$parent.experience" value="lots">
 								A lot
 							</label>
 						</div>
@@ -76,7 +79,7 @@
 					<div class="form-group">
 						<div class="checkbox">
 							<label for="will-sign-up">
-								<input type="checkbox" id="will-sign-up"  ng-model="signUp" ng-checked="true">
+								<input type="checkbox" id="will-sign-up"  ng-model="$parent.signUp" ng-checked="true">
 								Sign me up for PantherHackers news!
 							</label>
 						</div>
@@ -88,8 +91,13 @@
 			</div>
 			<div id="result" ng-class="resultError" ng-bind-html="result"></div>				
 		</div>
-		<div id="more">
-			<div ng-show="doneSign()" class="thumbnail text-center">
+		<div ng-if="isDeadline()" class="more">
+			<div class="thumbnail text-center">
+				<p>We're sorry but RSVPs are not longer being accepted.</p>
+			</div>
+		</div>
+		<div ng-if="doneSign()||isDeadline()" class="more">
+			<div class="thumbnail text-center">
 				<h2>WANT MORE?</h2>
 				<br>
 				<a href="http://pantherhackers.com/" class="btn btn-default btn-lg" role="button">CHECK US OUT!</a>
@@ -150,8 +158,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="more">
-		<div ng-show="!doneSign()" class="thumbnail text-center">
+	<div class="more">
+		<div ng-if="!doneSign()&&!isDeadline()" class="thumbnail text-center">
 			<h2>WANT MORE?</h2>
 			<br>
 			<a href="http://pantherhackers.com/" class="btn btn-default btn-lg" role="button">CHECK US OUT!</a>

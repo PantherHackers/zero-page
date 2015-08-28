@@ -66,9 +66,54 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function(
 		return !$scope.buttonStatus;
 	};
 	
-	$scope.submit = function() {
+	var getDate = function () {
+	
+		var date = new Date();
+		var arrDate = [date.getUTCMonth() + 1, date.getUTCDate(), date.getUTCFullYear()];
 		
-		$log.info('Button clicked');
+		if (date.getUTCHours() < 4) {
+			
+			arrDate[1] = date.getUTCDate() - 1;
+			return arrDate;
+		} else {
+	
+			return arrDate;		
+		}
+	}
+	
+	var getTime = function () {
+		
+		var utc = new Date().getUTCHours();
+		
+		if (utc > 4) {
+			
+			return utc - 4;
+		} else {
+			
+			return utc + 20;		
+		}
+	}
+	
+	$scope.isDeadline = function () {
+		
+		var date = getDate();
+		var flag = false;
+		
+		if (date[2] > 2015) {
+			if (date[2] === 2015 && date[0] > 8) {
+				if (date[2] === 2015 && date[0] === 8 && date[1] > 29) {
+					if (date[2] === 2015 && date[0] === 8 && date[1] == 29 && getTime() >= 16) {
+							
+						flag = true;
+					}
+				}
+			}
+		}
+		
+		return flag;
+	}
+	
+	$scope.submit = function() {
 		
 		if ($scope.name.length !== 0 && $scope.campusId.length !== 0) {
 			

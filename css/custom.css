@@ -44,17 +44,23 @@ h1, h2, h3, h4 {
 	padding-bottom: 30px;
 }
 
-#more .thumbnail {
+.more {
 	
 	text-align: center;
+}
+
+.more .thumbnail {
+	
+	text-align: center;	
 	margin-left: auto;
 	margin-right: auto;
 	padding-bottom: 30px;
 }
 
-#more {
+.more p {
 	
-	padding-bottom: 30px;
+	font-size: 18px;
+	padding-bottom: 10px;
 }
 
 #result {
@@ -75,6 +81,11 @@ h1, h2, h3, h4 {
 	box-shadow: 0px 0px 10px 0px #D31C29;
 }
 /* JS ASSIGNED CLASSES END */
+
+.my-warning {
+	
+	color: #EAC252;
+}
 
 .thumbnail {
 	
@@ -251,7 +262,7 @@ h1, h2, h3, h4 {
 		width: 80%;
 	}
 	
-	#more .thumbnail {
+	.more .thumbnail {
 		
 		max-width: 80%;
 	}
