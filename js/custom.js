@@ -100,9 +100,18 @@ myApp.controller('mainController', ['$scope', '$http', '$sce', '$log', function(
 		var flag = false;
 		
 		if (date[2] > 2015) {
-			if (date[2] === 2015 && date[0] > 8) {
-				if (date[2] === 2015 && date[0] === 8 && date[1] > 29) {
-					if (date[2] === 2015 && date[0] === 8 && date[1] == 29 && getTime() >= 16) {
+			
+			flag = true;
+		} else if (date[2] === 2015) {
+			if (date[0] > 9) {
+				
+				flag = true;
+			} else if (date[0] === 9) {
+				if (date[1] > 1) {
+					
+					flag = true;
+				} else if (date[1] === 1) {
+					if (getTime() >= 10) {
 							
 						flag = true;
 					}
