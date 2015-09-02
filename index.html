@@ -38,27 +38,8 @@
 				</div>
 			</div>
 		</div>
-		<div ng-if="false" class="more my-warning">
+		<div ng-if="!isDeadline()" class="more my-warning">
 			<p>The RSVP process will close at 10 AM on Tuesday, September 1st.</p>
-		</div>
-		<div class="thumbnail" id="rsvp-form">
-			<div ng-hide="doneSign()" id="sign-up">
-				<h2>PROJECT PITCH</h2>
-				<form action="">
-					<div class="form-group">
-						<label for="inputName">Name:</label>
-						<input type="text" class="form-control" id="inputName" ng-model="name" ng-class="nameError" placeholder="ex: Bill Gates">
-					</div>
-					<div class="form-group">
-						<label for="inputId">Student Email:</label>
-						<input type="text" class="form-control" id="inputId" ng-model="campusId" ng-class="campusIdError" placeholder="ex: sjobs1@student.gsu.edu">
-					</div>
-					<div class="text-center">
-						<div ng-click="submit()" ng-disabled="isDisabled()" class="btn btn-default btn-lg btn-primary">RSVP!</div>				
-					</div>
-				</form>
-			</div>
-			<div class="result" ng-class="resultError" ng-bind-html="result"></div>				
 		</div>
 		<div ng-if="!isDeadline()" class="thumbnail" id="rsvp-form">
 			<div ng-hide="doneSign()" id="sign-up">
@@ -108,14 +89,14 @@
 					</div>
 				</form>
 			</div>
-			<div class="result" ng-class="resultError" ng-bind-html="result"></div>				
+			<div id="result" ng-class="resultError" ng-bind-html="result"></div>				
 		</div>
-		<div ng-if="false" class="more">
+		<div ng-if="isDeadline()" class="more">
 			<div class="thumbnail text-center">
 				<p>We're sorry but RSVPs are not longer being accepted.</p>
 			</div>
 		</div>
-		<div ng-if="false" class="more">
+		<div ng-if="doneSign()||isDeadline()" class="more">
 			<div class="thumbnail text-center">
 				<h2>WANT MORE?</h2>
 				<br>
